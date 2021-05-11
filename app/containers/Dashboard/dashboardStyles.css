@@ -1,0 +1,54 @@
+.admin-page {
+  max-width: 1100px;
+  margin: 0px auto;
+  padding: 30px;
+}
+
+.custom-card {
+  background-color: #202020 !important;
+  border-radius: 20px !important;
+  -webkit-border-radius: 20px !important;
+  -moz-border-radius: 20px !important;
+  -ms-border-radius: 20px !important;
+  -o-border-radius: 20px !important;
+}
+
+.custom-card .image-container {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  background-image: url('../../assests/images/placeholder.png');
+  background-size: cover;
+  background-position: 100% center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.custom-card .linear-gradient-container {
+  min-height: 250px;
+  width: 100%;
+  position: relative;
+  background-image: linear-gradient(to bottom, transparent, black);
+}
+.custom-card .rating-container {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+
+.compose-mail-btn  {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 999;
+  border-radius: 25px !important;
+  -webkit-border-radius: 25px !important;
+  -moz-border-radius: 25px !important;
+  -ms-border-radius: 25px !important;
+  -o-border-radius: 25px !important;
+}
+
+.modal-view {
+  max-width: 1100px;
+  width: 100%;
+}

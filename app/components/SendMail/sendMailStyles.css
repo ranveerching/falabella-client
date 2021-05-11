@@ -1,0 +1,15 @@
+.send-mail-container {
+  max-width: 1100px;
+  margin: 0px auto;
+}
+
+.editor-class {
+  background-color:rgb(32, 32, 32);
+  padding: 1rem;
+  color: white;
+  min-height: 250px;
+}
+
+.toolbar-class {
+  border: 1px solid #ccc;
+}
