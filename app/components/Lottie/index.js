@@ -8,19 +8,21 @@ import React, { memo } from 'react';
 import Lottie from 'react-lottie';
 import PropTypes from 'prop-types';
 
-function LottieAnimation({ animationData, height, width, style }) {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
+function LottieAnimation({
+  animationData,
+  defaultOptions,
+  height,
+  width,
+  style,
+}) {
+  const options = {
+    ...defaultOptions,
     animationData,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid',
-    },
   };
 
   return (
     <Lottie
-      options={defaultOptions}
+      options={options}
       height={height}
       width={width}
       isStopped={false}
@@ -36,12 +38,20 @@ LottieAnimation.propTypes = {
   height: PropTypes.number,
   width: PropTypes.number,
   style: PropTypes.object,
+  defaultOptions: PropTypes.object,
 };
 
 LottieAnimation.defaultProps = {
   height: null,
   width: null,
   style: null,
+  defaultOptions: {
+    loop: true,
+    autoplay: true,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid',
+    },
+  },
 };
 
 export default memo(LottieAnimation);

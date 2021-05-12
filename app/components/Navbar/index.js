@@ -2,7 +2,7 @@ import React from 'react';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 
-export default function PrimarySearchAppBar({ user, logout }) {
+export default function PrimarySearchAppBar({ user, logout, loading }) {
   const handleLogout = () => {
     logout();
   };
@@ -19,6 +19,7 @@ export default function PrimarySearchAppBar({ user, logout }) {
         className="btn btn-outline-link my-2 my-sm-0 text-white"
         type="button"
         onClick={handleLogout}
+        disabled={loading}
       >
         Logout
       </button>
@@ -29,4 +30,5 @@ export default function PrimarySearchAppBar({ user, logout }) {
 PrimarySearchAppBar.propTypes = {
   user: PropTypes.object.isRequired,
   logout: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };

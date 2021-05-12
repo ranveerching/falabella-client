@@ -13,8 +13,10 @@ import { compose } from 'redux';
 import get from 'lodash/get';
 import size from 'lodash/size';
 import isEqual from 'lodash/isEqual';
-import { Row, Modal } from 'antd';
+import { Row, Modal, Typography } from 'antd';
 import map from 'lodash/map';
+import LottieAnimation from 'components/Lottie';
+import mailAnimation from 'assests/animationFiles/mailAnimation.json';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
@@ -32,6 +34,8 @@ import { signOut } from '../App/actions';
 import { sendMail, fetchRegisteredUsers } from './actions';
 
 import './dashboardStyles.css';
+
+const { Title } = Typography;
 export function Dashboard({
   logout,
   user,
@@ -55,7 +59,7 @@ export function Dashboard({
 
   return (
     <>
-      <NavBar logout={logout} user={user} />
+      <NavBar logout={logout} user={user} loading={loading} />
 
       {get(token, 'isAdmin') ? (
         <div className="admin-page">
@@ -91,7 +95,34 @@ export function Dashboard({
           </Modal>
         </div>
       ) : (
-        <h1>Pankaj Sood</h1>
+        <div className="text-center">
+          <LottieAnimation
+            animationData={mailAnimation}
+            height={450}
+            width={450}
+            defaultOptions={{
+              loop: true,
+              autoplay: true,
+              rendererSettings: {
+                preserveAspectRatio: 'xMidYMid slice',
+              },
+            }}
+          />
+
+          {isEqual(get(user, 'token.isRegistered'), true) ? (
+            <Title level={1} className="text-white mt-5">
+              You have already registered!
+            </Title>
+          ) : (
+            <button
+              className="btn btn-danger btn-lg mt-5 text-white register-mailing-btn shadow-lg"
+              type="button"
+              disabled={loading}
+            >
+              Register
+            </button>
+          )}
+        </div>
       )}
     </>
   );
