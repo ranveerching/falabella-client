@@ -1,5 +1,5 @@
 module.exports = {
-  baseURL: 'http://localhost:5000/task/api/',
+  baseURL: 'https://ebony-metal-glass.glitch.me',
   isLoggerEnabled: true,
   isLocal: false,
 };

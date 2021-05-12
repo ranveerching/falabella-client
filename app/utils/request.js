@@ -35,7 +35,6 @@ axiosInstance.interceptors.response.use(
     configuredStore.dispatch(stopLoader());
     if (_.get(response, 'data.message', null)) {
       notification.success({
-        duration: 0,
         message: response.data.message,
         style: {
           zIndex: 9999,

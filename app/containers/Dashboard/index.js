@@ -11,6 +11,8 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import get from 'lodash/get';
+import size from 'lodash/size';
+import isEqual from 'lodash/isEqual';
 import { Row, Modal } from 'antd';
 import map from 'lodash/map';
 
@@ -30,7 +32,6 @@ import { signOut } from '../App/actions';
 import { sendMail, fetchRegisteredUsers } from './actions';
 
 import './dashboardStyles.css';
-
 export function Dashboard({
   logout,
   user,
@@ -62,7 +63,7 @@ export function Dashboard({
             className="btn btn-danger btn-lg my-2 my-sm-0 text-white compose-mail-btn shadow-lg"
             type="button"
             onClick={() => setIsModalVisible(true)}
-            disabled={loading}
+            disabled={loading || isEqual(size(registeredUsers.users), 0)}
           >
             Compose Mail
           </button>

@@ -1,5 +1,5 @@
 module.exports = {
-  baseURL: 'https://falabella-backend.vercel.app/',
+  baseURL: 'https://ebony-metal-glass.glitch.me',
   isLoggerEnabled: true,
   isLocal: false,
 };

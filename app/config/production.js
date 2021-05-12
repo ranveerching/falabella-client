@@ -1,5 +1,5 @@
 module.exports = {
-  baseURL: 'https://falabella-server.herokuapp.com/',
+  baseURL: 'https://ebony-metal-glass.glitch.me',
   isLoggerEnabled: false,
   isLocal: false,
 };
