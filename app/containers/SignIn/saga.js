@@ -1,8 +1,13 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import request from 'utils/request';
-import { SIGN_IN, SIGN_UP } from './constants';
+import { SET_REGISTERED, SIGN_IN, SIGN_UP } from './constants';
 
-import { signInError, signUpError } from './actions';
+import {
+  signInError,
+  signUpError,
+  setRegisteredSuccess,
+  setRegisteredFail,
+} from './actions';
 import { signInSuccess, signUpSuccess } from '../App/actions';
 
 function* signIn({ values }) {
@@ -43,7 +48,24 @@ function* signUp({ values }) {
   }
 }
 
+function* setRegisteredFunc({ values }) {
+  console.log('Fired!!!', values);
+  try {
+    const options = {
+      method: 'PUT',
+      data: values,
+      url: '/setRegistered',
+    };
+
+    const response = yield call(request, options);
+    yield put(setRegisteredSuccess(response.data));
+  } catch (e) {
+    yield put(setRegisteredFail(e));
+  }
+}
+
 export default function* signInSaga() {
   yield takeLatest(SIGN_IN, signIn);
   yield takeLatest(SIGN_UP, signUp);
+  yield takeLatest(SET_REGISTERED, setRegisteredFunc);
 }

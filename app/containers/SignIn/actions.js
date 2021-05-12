@@ -10,7 +10,9 @@ import {
   SIGN_IN_ERROR,
   SIGN_UP,
   SIGN_UP_ERROR,
-  FETCH_REGISTERED_USERS_SUCCESS,
+  SET_REGISTERED,
+  SET_REGISTERED_SUCCESS,
+  SET_REGISTERED_FAIL,
 } from './constants';
 
 export function defaultAction() {
@@ -45,9 +47,22 @@ export function signUpError() {
   };
 }
 
-export function registeredUsersSuccess(payload) {
+export function setRegistered(payload) {
   return {
-    type: FETCH_REGISTERED_USERS_SUCCESS,
+    type: SET_REGISTERED,
+    values: payload,
+  };
+}
+
+export function setRegisteredSuccess(payload) {
+  return {
+    type: SET_REGISTERED_SUCCESS,
     payload,
+  };
+}
+
+export function setRegisteredFail() {
+  return {
+    type: SET_REGISTERED_FAIL,
   };
 }

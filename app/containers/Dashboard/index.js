@@ -32,6 +32,7 @@ import { makeSelectSignIn } from '../SignIn/selectors';
 import { signOut } from '../App/actions';
 
 import { sendMail, fetchRegisteredUsers } from './actions';
+import { setRegistered } from '../SignIn/actions';
 
 import './dashboardStyles.css';
 
@@ -43,6 +44,7 @@ export function Dashboard({
   fetchUsers,
   loading,
   handleSendMail,
+  handleSetRegistered,
 }) {
   useInjectReducer({ key: 'dashboard', reducer });
   useInjectSaga({ key: 'dashboard', saga });
@@ -111,13 +113,18 @@ export function Dashboard({
 
           {isEqual(get(user, 'token.isRegistered'), true) ? (
             <Title level={1} className="text-white mt-5">
-              You have already registered!
+              You have successfully registered!
             </Title>
           ) : (
             <button
               className="btn btn-danger btn-lg mt-5 text-white register-mailing-btn shadow-lg"
               type="button"
               disabled={loading}
+              onClick={() =>
+                handleSetRegistered({
+                  _id: get(token, '_id'),
+                })
+              }
             >
               Register
             </button>
@@ -144,6 +151,7 @@ function mapDispatchToProps(dispatch) {
     dispatch,
     fetchUsers: () => dispatch(fetchRegisteredUsers()),
     handleSendMail: values => dispatch(sendMail(values)),
+    handleSetRegistered: values => dispatch(setRegistered(values)),
     logout: () => {
       dispatch(signOut());
     },

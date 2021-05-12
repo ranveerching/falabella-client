@@ -14,3 +14,4 @@ export const SIGN_UP_SUCCESS = 'app/containers/App/SIGN_UP_SUCCESS';
 export const SIGN_OUT = 'app/containers/App/SIGN_OUT';
 export const MEMBER_SIGN_OUT = 'app/containers/App/MEMBER_SIGN_OUT';
 export const DEFAULT_ACTION = 'app/containers/App/DEFAULT_ACTION';
+export const SET_REGISTERED_SUCCESS = 'app/containers/SET_REGISTERED_SUCCESS';

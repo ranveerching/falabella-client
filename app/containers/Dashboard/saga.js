@@ -2,6 +2,7 @@ import { takeLatest, put, call } from 'redux-saga/effects';
 import request from 'utils/request';
 
 import { FETCH_REGISTERED_USERS, SEND_MAIL } from './constants';
+
 import {
   fetchRegisteredUsersSuccess,
   fetchRegisteredUsersFail,
