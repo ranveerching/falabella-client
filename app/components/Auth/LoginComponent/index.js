@@ -56,7 +56,11 @@ const LoginComponent = props => {
               </button>
 
               <div className="text-right">
-                <button className="btn btn-danger" type="submit">
+                <button
+                  className="btn btn-danger"
+                  type="submit"
+                  disabled={loading}
+                >
                   Login
                 </button>
               </div>

@@ -66,7 +66,11 @@ const SignupComponent = props => {
               </button>
 
               <div className="text-right">
-                <button className="btn btn-danger" type="submit">
+                <button
+                  className="btn btn-danger"
+                  type="submit"
+                  disabled={loading}
+                >
                   Sign Up
                 </button>
               </div>
